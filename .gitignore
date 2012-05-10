@@ -1,0 +1,12 @@
+.eunit
+deps
+priv
+*.o
+*.beam
+*.plt
+*.exe
+*.dll
+*.log.txt
+*.bin
+*.bin.readme.txt
+*.user.data
