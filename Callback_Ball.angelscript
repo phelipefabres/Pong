@@ -1,0 +1,6 @@
+﻿
+void ETHCallback_Ball()
+{
+	
+
+}

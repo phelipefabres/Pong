@@ -1,0 +1,71 @@
+[D:\ethanon\Pong\eth.log.txt]
+Loading game script from source-code: main.angelscript
+
+AngelScript ERROR (line 9): 
+The constructor name must be the same as the class
+
+AngelScript INFO (line 78): 
+Compiling void SGlobalScale::scaleEntities()
+
+AngelScript ERROR (line 93): 
+No matching signatures to 'ResolveJoints()'
+
+AngelScript INFO (line 6): 
+Compiling void BaseState::loadScene(const string&in)
+
+AngelScript ERROR (line 8): 
+No matching signatures to 'LoadScene(const string&, const string&, const string&, const string&)'
+
+AngelScript INFO (line 8): 
+Candidates are:
+
+AngelScript INFO (line 8): 
+void LoadScene(const string&in)
+
+AngelScript INFO (line 8): 
+void LoadScene(const string&in, const string&in, const string&in)
+
+AngelScript INFO (line 8): 
+void LoadScene(const string&in, const string&in, const string&in, const vector2&in)
+
+AngelScript INFO (line 11): 
+Compiling void BaseState::loadScene(const string&in, const vector2&in)
+
+AngelScript ERROR (line 13): 
+No matching signatures to 'LoadScene(const string&, const string&, const string&, const string&, const vector2&)'
+
+AngelScript INFO (line 13): 
+Candidates are:
+
+AngelScript INFO (line 13): 
+void LoadScene(const string&in)
+
+AngelScript INFO (line 13): 
+void LoadScene(const string&in, const string&in, const string&in)
+
+AngelScript INFO (line 13): 
+void LoadScene(const string&in, const string&in, const string&in, const vector2&in)
+
+AngelScript INFO (line 9): 
+Compiling void Game::Level(uint)
+
+AngelScript ERROR (line 11): 
+'deadTime' is not declared
+
+AngelScript ERROR (line 12): 
+'level' is not declared
+
+AngelScript ERROR (line 13): 
+'time' is not declared
+
+AngelScript ERROR (line 14): 
+'cont' is not declared
+
+AngelScript ERROR (line 15): 
+'timeBoss' is not declared
+
+AngelScript ERROR (line 16): 
+'cont2' is not declared
+Compile time: 265 milliseconds
+ERROR - Failed while building module.
+ERROR - ETHEngine::StartEngine: the script has set no scene to load.

@@ -1,0 +1,33 @@
+[_error.log.txt]
+
+AngelScript ERROR (line 9): 
+The constructor name must be the same as the class
+
+AngelScript ERROR (line 93): 
+No matching signatures to 'ResolveJoints()'
+
+AngelScript ERROR (line 8): 
+No matching signatures to 'LoadScene(const string&, const string&, const string&, const string&)'
+
+AngelScript ERROR (line 13): 
+No matching signatures to 'LoadScene(const string&, const string&, const string&, const string&, const vector2&)'
+
+AngelScript ERROR (line 11): 
+'deadTime' is not declared
+
+AngelScript ERROR (line 12): 
+'level' is not declared
+
+AngelScript ERROR (line 13): 
+'time' is not declared
+
+AngelScript ERROR (line 14): 
+'cont' is not declared
+
+AngelScript ERROR (line 15): 
+'timeBoss' is not declared
+
+AngelScript ERROR (line 16): 
+'cont2' is not declared
+ERROR - Failed while building module.
+ERROR - ETHEngine::StartEngine: the script has set no scene to load.
