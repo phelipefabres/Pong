@@ -42,10 +42,10 @@ class SMyStateFactory : SGameStateFactory
 
 	State@ createLevelSelectState()
 	{
-		/*PageProperties props;
+		PageProperties props;
 		@(props.itemChooser) = MyChooser();
-		return LevelSelector("empty", @props);*/
-		return createGameState(Game(1));
+		return LevelSelector("empty", @props);
+		//return createGameState(Game(1));
 	}
 
 	State@ createGameState(const uint idx)

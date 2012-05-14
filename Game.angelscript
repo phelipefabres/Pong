@@ -11,7 +11,7 @@ class Game : GameState
 		
 		idx = id;
 		GameStateProperties props;
-		super(_level, "scenes/main.esc", @props);
+		super(id, "scenes/main.esc", @props);
 	}
 	
 	
@@ -44,11 +44,11 @@ class Game : GameState
 		
 		ETHInput @ input =  GetInputHandle();
 	
-		if(input.GetKeyState(K_ESC) == KS_HIT)
+		/*if(input.GetKeyState(K_ESC) == KS_HIT)
 		{
 			g_stateManager.setState(Menu());
 		//	StopSample("soundfx/trilha.mp3");
-		}
+		}*/
 		
 		/*if(SeekEntity("asteroid.ent") is null && SeekEntity("nave.ent") is null && SeekEntity("nave_chefe.ent") is null)
 		{

@@ -1,5 +1,5 @@
 ﻿
-void ETHCallback_Ball()
+void ETHCallback_ball()
 {
 	
 
