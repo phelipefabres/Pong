@@ -1,8 +1,8 @@
 ﻿#include "ETHFramework/IncludeModules.angelscript"
 #include "Menu.angelscript"
 #include "Game.angelscript"
-#include "Pin.angelscript"
-#include "Ball.angelscript"
+#include "CallBack_Pin.angelscript"
+#include "CallBack_Ball.angelscript"
 #include "GameOverLayer.angelscript"
 
 
