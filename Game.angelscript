@@ -2,14 +2,14 @@
 class Game : GameState
 {
 	
-	ETHEntity @Ball;
-	ETHEntity @Pin1;
-	ETHEntity @Pin2;
-	uint idx;
+	//ETHEntity @Ball;
+	//ETHEntity @Pin1;
+	//ETHEntity @Pin2;
+	//uint idx;
 	Game(uint id)
 	{
 		
-		idx = id;
+		//idx = id;
 		GameStateProperties props;
 		super(id, "scenes/main.esc", @props);
 	}
@@ -20,7 +20,7 @@ class Game : GameState
 	{
 		GameState::preLoop();
 		
-		g_scale.scaleEntities();
+		//g_scale.scaleEntities();
 		
 		/*SetAmbientLight(vector3(1,1,1));
 		

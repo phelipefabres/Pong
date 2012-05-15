@@ -45,7 +45,7 @@ class SMyStateFactory : SGameStateFactory
 		PageProperties props;
 		@(props.itemChooser) = MyChooser();
 		return LevelSelector("empty", @props);
-		//return createGameState(Game(1));
+		//return createGameState(1);
 	}
 
 	State@ createGameState(const uint idx)
