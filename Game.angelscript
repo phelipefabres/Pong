@@ -11,7 +11,7 @@ class Game : GameState
 		
 		idx = id;
 		GameStateProperties props;
-		super(_level, "scenes/main.esc", @props);
+		super(id, "scenes/main.esc", @props);
 	}
 	
 	
