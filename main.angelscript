@@ -1,7 +1,9 @@
 ﻿#include "ETHFramework/IncludeModules.angelscript"
 #include "Menu.angelscript"
 #include "Game.angelscript"
+//#include "Collide.angelscript"
 #include "CallBack_Pin.angelscript"
+#include "CallBack_Tape.angelscript"
 #include "CallBack_Ball.angelscript"
 #include "GameOverLayer.angelscript"
 
@@ -62,7 +64,7 @@ void loop()
 
 void preLoop()
 {
-	g_scale.updateScaleFactor(DEFAULT_SCALE_HEIGHT);
+	g_scale.updateScaleFactor(512);
 	g_stateManager.runCurrentPreLoopFunction();
 
 	SetZBuffer(false);

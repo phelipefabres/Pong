@@ -20,11 +20,13 @@ class Game : GameState
 	{
 		GameState::preLoop();
 		
-		g_scale.scaleEntities();
-		
 		SetAmbientLight(vector3(1,1,1));
 		
-		
+		AddEntity("MainPin.ent",vector3(GetScreenSize()*vector2(0.1f,0.5f),0),0.0f);
+		AddEntity("pin.ent",vector3(GetScreenSize()*vector2(0.9f,0.5f),0),0.0f);
+
+		AddEntity("ball.ent",vector3(GetScreenSize()*vector2(0.5f,0.5f),0),0.0f);
+
 		
 	}
 	
