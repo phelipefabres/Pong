@@ -1,10 +1,10 @@
 ﻿
-class GameOverLayer : UILayer
+class WinLayer : UILayer
 {
 
-	GameOverLayer()
+	WinLayer()
 	{
-		addSprite("sprites/game_over_icon.png",COLOR_WHITE,GetScreenSize()*V2_HALF,V2_HALF);
+		addSprite("sprites/you_win_icon.png",COLOR_WHITE,GetScreenSize()*V2_HALF,V2_HALF);
 		addButton("restart","sprites/restart_game.png",vector2(0.5f,0.85f));
 		//addButton("selectLevel","sprites/game_over_levelSelect.png",vector2(0.75f,0.85f));
 	
@@ -28,7 +28,7 @@ class GameOverLayer : UILayer
 	
 	string getName() const
 	{
-		return "GameOverLayer";
+		return "WinLayer";
 	}
 	
 	bool isAlwaysActive() const

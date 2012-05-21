@@ -6,6 +6,8 @@
 #include "CallBack_Tape.angelscript"
 #include "CallBack_Ball.angelscript"
 #include "GameOverLayer.angelscript"
+#include "WinLayer.angelscript"
+
 
 
 void main()
