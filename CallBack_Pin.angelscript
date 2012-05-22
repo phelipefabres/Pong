@@ -11,7 +11,7 @@
 void ETHConstructorCallback_pin(ETHEntity @ Pin)
 {
 	
-	Pin.SetFloat("speed",120.0f);
+	Pin.SetFloat("speed",280.0f);
 	Pin.SetVector2("direction",vector2(1,1));
 }
 
@@ -30,20 +30,7 @@ void ETHConstructorCallback_MainPin(ETHEntity @ pin)
 void ETHCallback_MainPin(ETHEntity @ pin)
 {
 
-	ETHInput @input = GetInputHandle();
 	
-		
-	float speed = g_timeManager.unitsPerSecond(pin.GetFloat("speed"));
-	
-	if(input.KeyDown(K_UP))
-	{
-		pin.AddToPositionXY(vector2(0,-1)* speed);
-	}
-	
-	if(input.KeyDown(K_DOWN))
-	{
-		pin.AddToPositionXY(vector2(0,1)* speed);
-	}
 	
 	collidePinScreen(pin);
 	
