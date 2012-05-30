@@ -1,7 +1,7 @@
 ﻿
 void ETHConstructorCallback_ball(ETHEntity @ ball)
 {
-	ball.SetFloat("speed",340.0f);
+	ball.SetFloat("speed",400.0f);
 	//ball.AddToPositionXY(vector2(-1,0)*ball.GetFloat("speed"));
 	ball.SetVector2("direction",vector2(-1,0));
 	ball.SetUInt("inGame",0);

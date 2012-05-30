@@ -8,11 +8,12 @@
 	else if(pin.GetPositionXY().y < 0+MaxHeight)
 		pin.SetPositionXY(vector2(pin.GetPositionXY().x,0+MaxHeight));
 }
-void ETHConstructorCallback_pin(ETHEntity @ Pin)
+void ETHConstructorCallback_pin(ETHEntity @ pin)
 {
 	
-	Pin.SetFloat("speed",280.0f);
-	Pin.SetVector2("direction",vector2(1,1));
+//	pin.SetFloat("speed",340.0f);
+	pin.SetVector2("direction",vector2(1,1));
+	//pin.SetInt("player",0);
 }
 
 void ETHCallback_pin(ETHEntity @ pin)
@@ -21,10 +22,10 @@ void ETHCallback_pin(ETHEntity @ pin)
 	collidePinScreen(pin);
 }
 
-
+/*
 void ETHConstructorCallback_MainPin(ETHEntity @ pin)
 {
-	pin.SetFloat("speed",150.0f);
+	pin.SetFloat("speed",1.0f);
 }
 
 void ETHCallback_MainPin(ETHEntity @ pin)
@@ -35,3 +36,4 @@ void ETHCallback_MainPin(ETHEntity @ pin)
 	collidePinScreen(pin);
 	
 }
+*/

@@ -51,7 +51,7 @@ class SMyStateFactory : SGameStateFactory
 
 	State@ createGameState(const uint idx)
 	{
-		return Game(idx);
+		return Game(idx,1);
 	}
 }
 
