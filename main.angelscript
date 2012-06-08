@@ -1,7 +1,6 @@
 ﻿#include "ETHFramework/IncludeModules.angelscript"
 #include "Menu.angelscript"
 #include "Game.angelscript"
-//#include "Collide.angelscript"
 #include "CallBack_Pin.angelscript"
 #include "CallBack_Tape.angelscript"
 #include "Callback_Ball.angelscript"

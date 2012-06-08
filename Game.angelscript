@@ -21,7 +21,10 @@ class Game : GameState
 		props.resumeGameButton = "sprites/resumeButton.png";
 		super(id, "scenes/main.esc", @props);
 	}
-	
+	void loadSounds()
+	{
+		LoadSoundEffect("soundfx/pong.wav");
+	}
 	
 	
 	void preLoop()
@@ -40,11 +43,15 @@ class Game : GameState
 
 
 		AddEntity("ball.ent",vector3(GetScreenSize()*vector2(0.5f,0.5f),0),Ball);
-		//LoadSoundEffect("soundfx/ping.mp3");
-		LoadSoundEffect("soundfx/pong.wav");
+		loadSounds();
 		g_timeManager.resume();
 	}
+	void onResume()
+	{
+	loadSounds();
+	}
 	
+	//alters the direction of the ball when it colides whith something
 	void ballDirectionChange(float PinPosY, float PinSizeY)
 	{
 		SetSampleSpeed("soundfx/pong.wav",1.2f);
@@ -52,9 +59,10 @@ class Game : GameState
 		float newDir = (PinPosY - Ball.GetPositionXY().y)/PinSizeY;
 		vector2 vec = Ball.GetVector2("direction")- vector2(0.0f,newDir);
 		Ball.SetVector2("direction", vec*vector2(-1.0f,1.0f));
-		Ball.AddToPositionXY(Ball.GetVector2("direction")*vector2(5.0f,1.0f));
+		Ball.AddToPositionXY(Ball.GetVector2("direction")*vector2(10.0f,1.0f));
 	}
 	
+	//verify witch side of the screen is touched by the users
 	bool getTouchSide(vector2 pos)
 	{
 		if(pos.x < (GetScreenSize().x/2))
@@ -82,9 +90,8 @@ class Game : GameState
 				MainPin.AddToPositionXY(vector2(0,1)* speedPin);
 				Ball.SetUInt("inGame",1);
 			}
-			//if(playertwo == 2)
-			{
-				for(int i=0; i<input.GetMaxTouchCount();i++)
+			
+				for(uint i=0; i<input.GetMaxTouchCount();i++)
 				{
 					if(input.GetTouchState(i)==KS_DOWN)
 					{
@@ -101,14 +108,9 @@ class Game : GameState
 					}
 
 				}
-			}
+			
 
-		/*	//moving the Pin with the finger pressed in the screen of the device
-			if(input.GetTouchMove(0).y!=0)
-			{
-				MainPin.AddToPositionXY(vector2(0,input.GetTouchMove(0).y)*g_timeManager.getFactor());
-				Ball.SetUInt("inGame",1);
-			}
+		
 			
 			//simulates the 'back' button in the phone, if it hits the menu popup is called*/
 			if(input.GetKeyState(K_BACK)== KS_HIT)
@@ -118,12 +120,19 @@ class Game : GameState
 			
 	}
 	
+	//controu the moviments of the 2 pins in the scene and verify the collisions that happens in the scene
 	void collisionPinBallScene()
 	{
 			if(scaledCollide(Ball,MainPin)) 
+			{
+				AddEntity("particle2.ent",Ball.GetPosition(),180);
 				ballDirectionChange(MainPin.GetPositionXY().y,MainPin.GetSize().y);
+			}
 			else if (scaledCollide(Ball,Pin))
+			{
+				AddEntity("particle2.ent",Ball.GetPosition(),0);
 				ballDirectionChange(Pin.GetPositionXY().y,Pin.GetSize().y);
+			}
 
 		float minBallHeight = GetScreenSize().y-(Ball.GetSize().y/2);
 		float maxBallHeight = Ball.GetSize().y/2;
@@ -132,6 +141,11 @@ class Game : GameState
 		{
 			SetSampleSpeed("soundfx/pong.wav",0.6f);
 			PlaySample("soundfx/pong.wav");
+			if(Ball.GetPositionXY().y > minBallHeight)
+				AddEntity("particle.ent",Ball.GetPosition(),180);
+			else
+				AddEntity("particle.ent",Ball.GetPosition(),0);
+
 			Ball.SetVector2("direction", Ball.GetVector2("direction")*vector2(1.0f,-1.0f));
 			Ball.AddToPositionXY(Ball.GetVector2("direction")*vector2(1.0f,10.0f));
 		}
@@ -150,7 +164,8 @@ class Game : GameState
 		}
 		
 		
-
+		//when a player makes a score, the ball returns to the center of the screen and is released when the 
+		//user taps the screen
 		
 		if(Ball.GetPositionXY().x > GetScreenSize().x && Ball.GetUInt("inGame")==1)
 		{
@@ -172,20 +187,23 @@ class Game : GameState
 		}
 	}
 	
-	void scoreManager(string name)
+	//shows whith layer will be selected when the game finish
+	void scoreManager(string name,int player)
 	{
 		if(m_layerManager.getCurrentLayer().getName() != name)
 			{
 				if(name=="GameOverLayer")
 					addLayer(GameOverLayer());
 				else
-					addLayer(WinLayer());
+					addLayer(WinLayer(player));
 
 				m_layerManager.setCurrentLayer(name);
 				DeleteEntity(Ball);
 				g_timeManager.pause();
 			}
 	}
+	
+	
 	void loop()
 	{
 		GameState::loop();
@@ -202,11 +220,23 @@ class Game : GameState
 		DrawText(vector2(357,30), "" + scoreMainPin,"Verdana30_shadow.fnt", ARGB(250,255,255,255));
 		
 		
-		//show de Layer of the gameover
-		if(scorePin==3)
-			scoreManager("GameOverLayer");//show de Layer of the wingame
-		else if(scoreMainPin==3)
-			scoreManager("WinLayer");
-	
+		//show de Layer for the gameover when it's a 2 player game
+		if(playertwo==2)
+		{
+			if(scorePin==3)
+				scoreManager("WinLayer",2);
+			else if(scoreMainPin==3)
+				scoreManager("WinLayer",1);
+	    }
+		else		//show de Layer for the gameover when it's a 2 player game
+
+		{
+			if(scorePin==3)
+				scoreManager("GameOverLayer",1);
+			else if(scoreMainPin==3)
+				scoreManager("WinLayer",1);
+
+		}
+		
 	}
 }

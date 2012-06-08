@@ -14,6 +14,5 @@ void ETHCallback_ball(ETHEntity @ ball)
 	if(ball.GetUInt("inGame")==1)
 		ball.AddToPositionXY(ball.GetVector2("direction")*speed);
 
-
 	
 }

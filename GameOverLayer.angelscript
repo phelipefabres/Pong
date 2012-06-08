@@ -16,13 +16,11 @@ class GameOverLayer : UILayer
 		
 		if(isButtonPressed("restart"))
 		{
-			//StopSample("soundfx/trilha.mp3");
 			setButtonPressed("exit",false);
 			g_stateManager.setState(Game(1,1));
 		}
 		if(isButtonPressed("exit"))
 		{
-			//StopSample("soundfx/trilha.mp3");
 			setButtonPressed("exit",false);
 			Exit();
 		}
